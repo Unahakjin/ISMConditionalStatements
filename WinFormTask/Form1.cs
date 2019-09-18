@@ -31,17 +31,40 @@ namespace WinFormTask
         private void ButtonRes_Click(object sender, EventArgs e)
         {
             double x, y, z, s;
+            if (double.TryParse(textBoxY.Text, out y) == false && double.TryParse(textBoxZ.Text, out z) == false && double.TryParse(textBoxX.Text, out x) == false)
+            {
+                MessageBox.Show("Помилка введення значення x,y,z!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (double.TryParse(textBoxX.Text, out x) == false && double.TryParse(textBoxY.Text, out y) == false)
+            {
+                MessageBox.Show("Помилка введення значення x,y!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (double.TryParse(textBoxX.Text, out x) == false && double.TryParse(textBoxZ.Text, out z) == false)
+            {
+                MessageBox.Show("Помилка введення значення x,z!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (double.TryParse(textBoxY.Text, out y) == false && double.TryParse(textBoxZ.Text, out z) == false)
+            {
+                MessageBox.Show("Помилка введення значення y,z!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (double.TryParse(textBoxX.Text, out x) == false)
             {
                 MessageBox.Show("Помилка введення значення x!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else if (double.TryParse(textBoxY.Text, out y) == false)
+            if (double.TryParse(textBoxY.Text, out y) == false)
             {
                 MessageBox.Show("Помилка введення значення y!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else if (double.TryParse(textBoxZ.Text, out z) == false)
+            if (double.TryParse(textBoxZ.Text, out z) == false)
             {
                 MessageBox.Show("Помилка введення значення z!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             else
             {
